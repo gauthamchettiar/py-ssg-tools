@@ -1,0 +1,25 @@
+[project]
+name = "yolk-scripts"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "requests>=2.33.1",
+    "typer>=0.15.0",
+]
+
+[project.scripts]
+pst = "py_ssg_tools.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/py_ssg_tools"]
+
+[tool.pyright]
+pythonVersion = "3.14"
+venvPath = "."
+venv = ".venv"
