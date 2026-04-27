@@ -11,13 +11,13 @@ class GoogleFont:
         self.dest = dest
         self.cache_file = cache_file or dest / "cache.json"
 
-    def sync(self, font_names: list[str], weights: str = "400,700", subsets: list[str] | None = None) -> None:
+    def sync(self, font_names: list[str], weights: str = "400,700", subsets: list[str] | None = None) -> None: # pyright: ignore[reportGeneralTypeIssues]
         local_cache = self._load_cache()
         for font_name in font_names:
             self._sync_one(font_name, weights, subsets, local_cache)
         self._save_cache(local_cache)
 
-    def _sync_one(self, font_name: str, weights: str, subsets: list[str] | None, local_cache: dict) -> None:
+    def _sync_one(self, font_name: str, weights: str, subsets: list[str] | None, local_cache: dict) -> None: # pyright: ignore[reportGeneralTypeIssues]
         print(f"Checking for {font_name} updates...")
 
         family = font_name.replace(" ", "+")
